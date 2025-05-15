@@ -2,21 +2,25 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use Exception;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CategoryResource;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use App\Http\Resources\CategoryResource;
-use App\Models\Category;
-use Exception;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * lis all categories (with pagination if needed)
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index(Request $request)
+    public function index(Request $request): AnonymousResourceCollection
     {
         $paginate = $request->get("paginate");
         $categories = $paginate
@@ -27,9 +31,11 @@ class CategoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created category in db
+     * @param \App\Http\Requests\StoreCategoryRequest $request
+     * @return CategoryResource|JsonResponse|mixed
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(StoreCategoryRequest $request): CategoryResource|JsonResponse
     {
         try {
             $category = Category::create($request->validated());
@@ -40,17 +46,22 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified category
+     * @param \App\Models\Category $category
+     * @return CategoryResource
      */
-    public function show(Category $category)
+    public function show(Category $category): CategoryResource
     {
         return new CategoryResource($category);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified category in DB
+     * @param \App\Http\Requests\UpdateCategoryRequest $request
+     * @param \App\Models\Category $category
+     * @return CategoryResource|JsonResponse
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category): CategoryResource|JsonResponse
     {
         try {
             $category->update($request->validated());
@@ -63,7 +74,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category): JsonResponse
     {
         try {
             $category->delete();
