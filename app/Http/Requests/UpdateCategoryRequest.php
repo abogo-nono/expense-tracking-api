@@ -24,9 +24,9 @@ class UpdateCategoryRequest extends FormRequest
         $category = $this->route('category');
 
         return [
-            'name' => ['required', 'string', 'unique:categories,name', $category->id, 'min:3', 'max:25'],
-            'icon' => ['required', 'string', 'unique:categories,icon', $category->id, 'min:3', 'max:25'],
-            'color' => ['required', 'string', 'unique:categories,color', $category->id, 'min:3', 'max:50']
+            'name' => ['sometimes', 'string', 'unique:categories,name,' . $category->id, 'min:3', 'max:25'],
+            'icon' => ['sometimes', 'string', 'unique:categories,icon,' . $category->id, 'min:3', 'max:25'],
+            'color' => ['sometimes', 'string', 'unique:categories,color,' . $category->id, 'min:3', 'max:50']
         ];
     }
 }
