@@ -32,9 +32,9 @@ class CategoryController extends Controller
     {
         try {
             $category = Category::create($request->validated());
-            return response()->json(CategoryResource::make($category), Response::HTTP_CREATED);
+            return new CategoryResource($category);
         } catch (Exception $exception) {
-            return response()->json(['message' => 'Something went wrong!'], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return response()->json(["error" => "Something went wrong!"], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
