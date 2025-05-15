@@ -17,10 +17,10 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $paginate = $request->get('paginate');
+        $paginate = $request->get("paginate");
         $categories = $paginate
-            ? Category::orderBy('name')->paginate($paginate)
-            : Category::orderBy('name')->get();
+            ? Category::orderBy("name")->paginate($paginate)
+            : Category::orderBy("name")->get();
 
         return CategoryResource::collection($categories);
     }
