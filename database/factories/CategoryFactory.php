@@ -16,9 +16,11 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
+        $icons = ['fas fa-a', 'fas fa-b', 'fas fa-c', 'fas fa-d', 'fas fa-e', 'fas fa-f', 'fas fa-g', 'fas fa-h', 'fas fa-i', 'fas fa-j'];
+
         return [
             'name' => $this->faker->text(25),
-            'icon' => 'fas fa-layer-group',
+            'icon' => $this->faker->unique()->randomElement($icons),
             'color' => $this->faker->colorName
         ];
     }
