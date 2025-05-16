@@ -25,7 +25,7 @@ class StoreBudgetRequest extends FormRequest
             'amount' => ['required', 'numeric', 'min:2'],
             'start_date' => ['required', 'date'],
             'end_date' => ['required', 'date'],
-            'category_id' => ['required', 'exists:categories,id']
+            'category_id' => ['required', 'exists:categories,id', 'unique:budgets,category_id']
         ];
     }
 }
