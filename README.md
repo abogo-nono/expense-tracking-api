@@ -12,6 +12,10 @@ This is a simple RESTful API built with Laravel 12.x for managing personal expen
 - **Reporting**: Generate summaries of expenses over time.
 - **RESTful API**: Fully REST-compliant endpoints.
 
+### Warning
+
+Not all features are fully implemented. Currently, only the category and budget management features are complete.
+
 ## Prerequisites
 
 - PHP >= 8.2
@@ -51,27 +55,27 @@ This is a simple RESTful API built with Laravel 12.x for managing personal expen
 
 ## API Endpoints
 
-| Method | Endpoint              | Description                  |
-|--------|-----------------------|------------------------------|
-| POST   | `/api/register`       | Register a new user          |
-| POST   | `/api/login`          | Authenticate a user          |
-| GET    | `/api/expenses`       | List all expenses            |
-| POST   | `/api/expenses`       | Create a new expense         |
-| PUT    | `/api/expenses/{id}`  | Update an expense            |
-| DELETE | `/api/expenses/{id}`  | Delete an expense            |
-| GET    | `/api/incomes`        | List all incomes             |
-| POST   | `/api/incomes`        | Create a new income          |
-| PUT    | `/api/incomes/{id}`   | Update an income             |
-| DELETE | `/api/incomes/{id}`   | Delete an income             |
-| GET    | `/api/budgets`        | List all budgets             |
-| POST   | `/api/budgets`        | Create a new budget          |
-| PUT    | `/api/budgets/{id}`   | Update a budget              |
-| DELETE | `/api/budgets/{id}`   | Delete a budget              |
-| GET    | `/api/categories`     | List all categories          |
-| POST   | `/api/categories`     | Create a new category        |
-| PUT    | `/api/categories/{id}`| Update a category            |
-| DELETE | `/api/categories/{id}`| Delete a category            |
-| GET    | `/api/reports`        | Generate expense reports     |
+| Method | Endpoint               | Description              |
+| ------ | ---------------------- | ------------------------ |
+| POST   | `/api/register`        | Register a new user      |
+| POST   | `/api/login`           | Authenticate a user      |
+| GET    | `/api/expenses`        | List all expenses        |
+| POST   | `/api/expenses`        | Create a new expense     |
+| PUT    | `/api/expenses/{id}`   | Update an expense        |
+| DELETE | `/api/expenses/{id}`   | Delete an expense        |
+| GET    | `/api/incomes`         | List all incomes         |
+| POST   | `/api/incomes`         | Create a new income      |
+| PUT    | `/api/incomes/{id}`    | Update an income         |
+| DELETE | `/api/incomes/{id}`    | Delete an income         |
+| GET    | `/api/budgets`         | List all budgets         |
+| POST   | `/api/budgets`         | Create a new budget      |
+| PUT    | `/api/budgets/{id}`    | Update a budget          |
+| DELETE | `/api/budgets/{id}`    | Delete a budget          |
+| GET    | `/api/categories`      | List all categories      |
+| POST   | `/api/categories`      | Create a new category    |
+| PUT    | `/api/categories/{id}` | Update a category        |
+| DELETE | `/api/categories/{id}` | Delete a category        |
+| GET    | `/api/reports`         | Generate expense reports |
 
 ## Contributing
 
@@ -80,3 +84,4 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
